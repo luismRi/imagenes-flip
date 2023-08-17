@@ -1,0 +1,62 @@
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+* {
+  font-family: sans-serif;
+}
+body {
+  background-color: navy;
+}
+h1 {
+  color: white;
+  font-size: clamp(2rem, 1rem + 3vw, 3rem);
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.flip-card {
+  border: thick solid #000;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  height: 400px;
+  margin-bottom: 1rem;
+
+  position: relative;
+  cursor: pointer;
+  transition: transform 2s ease-in-out;
+  perspective: 10rem;
+  transform-style: preserve-3d;
+}
+.flip-card {
+  transform-origin: center right;
+}
+
+.flip-card:hover {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.flip-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0 50%;
+}
+.flip-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.flip-front {
+  transform: rotateY(180deg);
+}
+.flip-back {
+  transform: rotateY(0deg);
+}
